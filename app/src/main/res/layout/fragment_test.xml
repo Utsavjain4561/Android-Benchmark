@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/fragment_container"
+    android:background="#FFFFFF"
+    tools:context="com.example.android.anditest.TestFragment">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:orientation="vertical"
+    android:weightSum="2">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/easy_score_tv"
+        android:padding="16dp"
+
+        android:textColor="#0ABDC6"
+        android:textStyle="bold"
+        tools:fontFamily="@font/cagliostro"
+        android:textAlignment="center"
+        android:textSize="100dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/stress_score_tv"
+        android:padding="16dp"
+
+
+        android:textColor="#0ABDC6"
+        android:textStyle="bold"
+        tools:fontFamily="@font/cagliostro"
+        android:textAlignment="center"
+        android:textSize="100dp"/>
+</LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/easy"
+            android:layout_weight="1"
+            android:padding="28dp"
+            android:textColor="#0ABDC6"
+            android:text="Easy Test"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:fontFamily="@font/cagliostro"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Stress Test"
+            android:id="@+id/stress"
+            android:textColor="#0ABDC6"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            tools:fontFamily="@font/cagliostro"
+            android:padding="28dp"
+            />
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

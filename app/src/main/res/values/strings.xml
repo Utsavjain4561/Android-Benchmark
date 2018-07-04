@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">AndiTest</string>
+    <string name="message">My name is Utsav Jain</string>
+    <string name="SERIAL">SERIAL</string>
+    <string name="MODEL">MODEL</string>
+    <string name="ID">ID</string>
+    <string name="MANUFACTURER">MANUFACTURER</string>
+    <string name="BRAND">BRAND</string>
+    <string name="TYPE">TYPE</string>
+    <string name="USER">USER</string>
+    <string name="BASE">VERSION_CODES.BASE</string>
+    <string name="INCREMENTAL">VERSION.INCREMENTAL</string>
+    <string name="SDK">SDK</string>
+    <string name="BOARD">BOARD</string>
+    <string name="HOST">HOST</string>
+    <string name="FINGERPRINT">FINGERPRINT</string>
+    <string name="VERSION_CODES">VERSION.RELEASE</string>
+    <string name="navigation_draw_open">Open navigation drawer</string>
+    <string name="navigation_draw_close">Close navigation drawer</string>
+</resources>

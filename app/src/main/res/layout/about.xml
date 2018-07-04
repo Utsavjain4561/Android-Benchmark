@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/grey">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="About"
+        android:textColor="@color/blue"
+        android:textSize="60dp"
+        android:layout_margin="28dp"
+        android:id="@+id/about"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Software and Hardware Information"
+        android:textColor="@color/blue"
+        android:layout_below="@id/about"
+        android:id="@+id/tag"
+        android:textAllCaps="true"
+        android:layout_margin="28dp"
+        android:textStyle="bold"
+        />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/software"
+
+        android:layout_below="@id/tag">
+
+    </ListView>
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

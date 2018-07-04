@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "469837614223",
+    "firebase_url": "https://anditest-28efd.firebaseio.com",
+    "project_id": "anditest-28efd",
+    "storage_bucket": "anditest-28efd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469837614223:android:4682a1432cb269ae",
+        "android_client_info": {
+          "package_name": "com.example.android.anditest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "469837614223-plj6e1vbsa1jr1mgpg29js86fdaebrn2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.android.anditest",
+            "certificate_hash": "330961a459866cec4ceb553f6beb50b5cab78624"
+          }
+        },
+        {
+          "client_id": "469837614223-d3sobbehk0nevpg6mlg2ante5ohgh0u2.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "469837614223-d3sobbehk0nevpg6mlg2ante5ohgh0u2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYN_caRyBSkWw6eQ5-hEXqGHlDgUDbpbc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "469837614223-d3sobbehk0nevpg6mlg2ante5ohgh0u2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

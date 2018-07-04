@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = "navigation_view">
+
+
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/dashboard"
+            android:title="Dashboard"
+            android:icon="@drawable/ic_dashboard"/>
+        <item android:id="@+id/results"
+            android:icon="@drawable/ic_leaderboard"
+            android:title="Leaderboard"
+            />
+
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/share"
+                android:title="Share"
+                android:icon="@drawable/ic_share"
+                />
+            <item
+                android:id="@+id/feedback"
+                android:title="Feedback"
+                android:icon="@drawable/ic_feedback"
+                />
+
+
+        </menu>
+
+    </item>
+
+</menu>
