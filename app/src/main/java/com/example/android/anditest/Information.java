@@ -3,6 +3,7 @@ package com.example.android.anditest;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 import java.io.Serializable;
 import java.util.Comparator;
@@ -13,7 +14,7 @@ import java.util.HashMap;
  * Created by UTSAV JAIN on 6/3/2018.
  */
 
-public class Information implements Parcelable {
+public class Information implements Parcelable,Comparable {
 
     private String mTitle,mInfo , mManufacturer , mModel,mTime ;
     private int mEasyScore , mStressScore , mScore;
@@ -58,6 +59,7 @@ public class Information implements Parcelable {
         mStressScore = in.readInt();
         mDatabaseSet = in.readByte() != 0;
     }
+
 
 
     public static final Creator<Information> CREATOR = new Creator<Information>() {
@@ -144,4 +146,9 @@ public class Information implements Parcelable {
     }
 
 
+    @Override
+    public int compareTo(@NonNull Object o) {
+        int score = ((Information)o).getScore();
+        return  this. mScore - score;
+    }
 }

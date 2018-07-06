@@ -5,6 +5,7 @@
     android:background="@color/blue"
     android:padding="10dp"
     android:gravity="bottom"
+    android:id="@+id/nav"
     >
     
 

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <com.github.mikephil.charting.charts.HorizontalBarChart
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/bar_chart"
-        android:layout_margin="10dp"
-        >
+        android:id="@+id/stressList">
 
-    </com.github.mikephil.charting.charts.HorizontalBarChart>
+    </ListView>
 
 </LinearLayout>

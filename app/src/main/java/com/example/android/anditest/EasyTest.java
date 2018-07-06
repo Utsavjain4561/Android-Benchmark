@@ -57,7 +57,7 @@ public class EasyTest extends AppCompatActivity {
                 RESULT = Activity.RESULT_OK;
                 progress = 0;
                 progressBar = (ProgressBar) findViewById(R.id.load);
-                progressBar.setMax(20);
+                progressBar.setMax(200);
                 progressBar.setVisibility(View.VISIBLE);
                 relativeLayout.setBackgroundColor(getResources().getColor(R.color.oreo));
 
@@ -68,7 +68,7 @@ public class EasyTest extends AppCompatActivity {
                     @Override
                     public void run() {
                         startTime = System.nanoTime();
-                        while (progressStatus < 20) {
+                        while (progressStatus < 200) {
 
                             myHash.computeSHAHash();
                             progressStatus++;

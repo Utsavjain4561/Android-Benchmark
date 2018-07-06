@@ -1,5 +1,8 @@
 package com.example.android.anditest;
 
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -7,6 +10,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.components.Description;
@@ -23,6 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -30,21 +37,24 @@ import java.util.List;
  */
 
 public class StressResults extends Fragment {
-    HorizontalBarChart horizontalBarChart;
-    int easyScore , index=0;
+
+    int stressScore;
     String modelName;
     BarData data;
     View view;
-    List<BarEntry> valueSet1 = new ArrayList<BarEntry>();
+
+    ArrayList<Information> stressResults =  new ArrayList<Information>();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.stress_results,container,false);
-        horizontalBarChart = (HorizontalBarChart) view.findViewById(R.id.bar_chart);
+
         getFirebaseData();
         return view;
     }
     public void getFirebaseData() {
+
+
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference("info");
@@ -58,7 +68,7 @@ public class StressResults extends Fragment {
                     for (DataSnapshot model : manufacturer.getChildren()) {
                         for (DataSnapshot serial : model.getChildren()) {
                             for (DataSnapshot info : serial.getChildren()) {
-                                easyScore = ((Long) info.child("stressScore").getValue()).intValue();
+                                stressScore = ((Long) info.child("stressScore").getValue()).intValue();
 
 
                                 modelName = (String) info.child("model").getValue();
@@ -66,53 +76,20 @@ public class StressResults extends Fragment {
 
                             }
                         }
+                        if(stressScore!=0)
+                        stressResults.add(new Information(modelName,stressScore));
 
 
-                        BarEntry barEntry = new BarEntry(index++,easyScore);
-                        valueSet1.add(barEntry);
+
                     }
 
                 }
 
-
-
-                BarDataSet dataSet = new BarDataSet(valueSet1,"Stress Results");
-                ArrayList<IBarDataSet> dataSets =  new ArrayList<IBarDataSet>();
-                dataSets.add(dataSet);
-                dataSet.setDrawValues(true);
-                dataSet.setValueTextSize(30f);
-
-
-                data = new BarData(dataSets);
-                data.setBarWidth(0.5f);
-                YAxis left = horizontalBarChart.getAxisLeft();
-                left.setDrawLabels(false);
-                int size = valueSet1.size();
-                String[] values = new String[size];
-                for(int i=0;i<size;i++){
-                    values[i]=String.valueOf(i);
-                }
-                XAxis xAxis = horizontalBarChart.getXAxis();
-                xAxis.setValueFormatter(new MyXAxisValueFormatter(values));
-
-                horizontalBarChart.setData(data);
-
-                Description description =  new Description();
-                description.setText("Stress Results");
-                horizontalBarChart.setDescription(description);
-                horizontalBarChart.setVisibleXRangeMaximum(5);
-                horizontalBarChart.moveViewToX(10);
-                horizontalBarChart.getLegend().setEnabled(false);
-                horizontalBarChart.setDrawValueAboveBar(false);
-                horizontalBarChart.setDrawGridBackground(false);
-                horizontalBarChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM_INSIDE);
-                horizontalBarChart.animateY(1000);
-                horizontalBarChart.invalidate();
-
+                Collections.sort(stressResults);
+                StressAdapter stressAdapter = new StressAdapter(getActivity(),stressResults);
+                ListView sList = (ListView) view.findViewById(R.id.stressList);
+                sList.setAdapter(stressAdapter);
             }
-
-
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -120,5 +97,42 @@ public class StressResults extends Fragment {
         });
 
     }
-
 }
+class StressAdapter extends ArrayAdapter {
+
+    public StressAdapter(@NonNull Context context, ArrayList<Information> info) {
+        super(context, 0, info);
+    }
+
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        View listItem = convertView;
+        if(listItem == null) {
+            listItem = LayoutInflater.from(getContext()).inflate(
+                    R.layout.leaderboard_item, parent, false);
+        }
+        Information info = (Information) getItem(position);
+        TextView name = (TextView) listItem.findViewById(R.id.name);
+        switch (position){
+            case 0: name.setTextSize(55f);
+                    name.setTextColor(Color.BLACK);
+                    break;
+            case 1: name.setTextSize(40f);
+                name.setTextColor(Color.BLACK);
+                break;
+            case 2: name.setTextSize(25f);
+                name.setTextColor(Color.BLACK);
+                break;
+
+        }
+        name.setText(Integer.toString(position+1)+"."+info.getModel());
+
+        TextView score = (TextView) listItem.findViewById(R.id.score);
+        score.setText(Integer.toString(info.getScore()));
+
+        return listItem;
+    }
+}
+
+
